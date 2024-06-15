@@ -1,0 +1,3 @@
+com/discord/App.class
+com/discord/commands/Ping.class
+com/discord/commands/Falar.class
