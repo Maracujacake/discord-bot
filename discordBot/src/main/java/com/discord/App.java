@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import com.discord.commands.Ping;
 import com.discord.commands.Falar;
+import net.dv8tion.jda.api.entities.Activity;
 
 
 public class App 
@@ -32,6 +33,7 @@ public class App
        ).buildJDA(
 
        );
-        
+
+      jda.getPresence().setActivity(Activity.watching("Masterchef Brasil"));
     }
 }

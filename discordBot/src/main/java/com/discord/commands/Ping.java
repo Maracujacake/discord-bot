@@ -1,7 +1,6 @@
 package com.discord.commands;
 import com.discord.App;
 
-import ca.tristan.easycommands.EasyCommands;
 import ca.tristan.easycommands.commands.EventData;
 import ca.tristan.easycommands.commands.slash.SlashExecutor;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;

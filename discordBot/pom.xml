@@ -43,19 +43,6 @@
 		<version>1.3.77</version>
 	</dependency>
 
-	<dependency> <!-- leitura de csv -->
-		<groupId>com.opencsv</groupId>
-		<artifactId>opencsv</artifactId>
-		<version>5.5.1</version>
-	</dependency>
-
-	<dependency> <!-- Para possiveis conexoes com APIs externas -->
-		<groupId>com.konghq</groupId>
-		<artifactId>unirest-java</artifactId>
-		<version>3.13.8</version>
-	</dependency>
-
-
 </dependencies>
 
 

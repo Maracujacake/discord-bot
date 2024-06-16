@@ -11,6 +11,7 @@ import java.util.Map;
 import ca.tristan.easycommands.commands.EventData;
 import ca.tristan.easycommands.commands.slash.SlashExecutor;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
 
 public class Falar extends SlashExecutor{
     public Map<String, String> frases;
@@ -22,11 +23,14 @@ public class Falar extends SlashExecutor{
 
      private void carregarRespostas() {
         File file = new File("/workspaces/discord-bot/discordBot/falas.csv");
-        System.out.println("Caminho absoluto do arquivo CSV: " + file.getAbsolutePath());
+        
 
         if (!file.exists()) {
             System.out.println("Arquivo respostas.csv não encontrado!");
             return;
+        }
+        else{
+            System.out.println("Caminho absoluto do arquivo CSV: " + file.getAbsolutePath());
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -54,9 +58,13 @@ public class Falar extends SlashExecutor{
 
     @Override
     public void execute(EventData data) {
+        App.jda.upsertCommand("falar", "Converse com o bot").addOption(OptionType.STRING, "mensagem", "A mensagem para o bot", true).queue();
         TextChannel canal = data.getTextChannel();
         String mensagem = data.getCommand().getOptions().get(0).getAsString();
         String resposta = frases.get(mensagem);
+        if(resposta == null){
+            resposta = "Não entendi o que você disse";
+        }
         canal.sendMessage(resposta).queue();
     }
 
